@@ -1,7 +1,7 @@
 # Proxmox #######################
 proxmox_hostname                = "192.168.1.113"
 proxmox_ssh_key_path            = "~/.ssh/id_rsa"
-proxmox_resource_pool           = "Kubernetes-Test"
+proxmox_resource_pool           = "Kubernetes-Talos"
 
 
 # Talos #########################
@@ -11,7 +11,7 @@ talos_disable_flannel           = true
 
 
 # Kubernetes ####################
-kubernetes_cluster_name         = "test"
+kubernetes_cluster_name         = "talos"
 
 
 # Controlplanes #################
@@ -27,6 +27,8 @@ controlplane_vlan_id            = "40"
 controlplane_cpu_cores          = "2"
 controlplane_memory             = "2048"
 controlplane_disk_size          = "10"
+
+controlplane_network_device = "vmbr1"
 
 controlplane_tags               = [
   "app-kubernetes",
@@ -48,6 +50,8 @@ workernode_vlan_id              = "40"
 workernode_cpu_cores            = "2"
 workernode_memory               = "2048"
 workernode_disk_size            = "10"
+
+workernode_network_device = "vmbr1"
 
 workernode_tags                 = [
   "app-kubernetes",
