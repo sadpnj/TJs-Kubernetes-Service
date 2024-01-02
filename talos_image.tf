@@ -11,7 +11,7 @@ resource "proxmox_virtual_environment_file" "talos_image" {
   connection {
     type     = "ssh"
     user     = "root"
-    password = var.proxmox_ssh_key_path
+    private_key = file(var.proxmox_ssh_key_path)
     host     = var.proxmox_hostname
   }
 

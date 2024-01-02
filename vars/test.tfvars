@@ -1,6 +1,6 @@
 # Proxmox #######################
 proxmox_hostname                = "192.168.1.113"
-proxmox_ssh_key_path            = "~/.ssh"
+proxmox_ssh_key_path            = "~/.ssh/id_rsa"
 proxmox_resource_pool           = "Kubernetes-Test"
 
 
