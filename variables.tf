@@ -32,12 +32,12 @@ variable "talos_image_node_name" {
 # Kubernetes Cluster
 variable "talos_version" {
   type        = string
-  default     = "v1.5.3"
+  default     = "v1.6.1"
   description = "Identify here: https://github.com/siderolabs/talos/releases"
 }
 variable "kubernetes_version" {
   type        = string
-  default     = "v1.28.2"
+  default     = "v1.29.0"
   description = "Identify here: https://github.com/siderolabs/kubelet/pkgs/container/kubelet"
 }
 variable "qemu_guest_agent_version" {

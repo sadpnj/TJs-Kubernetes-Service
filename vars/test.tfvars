@@ -5,7 +5,7 @@ proxmox_resource_pool           = "Kubernetes-Test"
 
 
 # Talos #########################
-talos_image_node_name           = "talos"
+talos_image_node_name           = "proxmox"
 talos_virtual_ip                = "10.10.10.50"
 talos_disable_flannel           = true
 
@@ -16,7 +16,7 @@ kubernetes_cluster_name         = "test"
 
 # Controlplanes #################
 controlplane_vmid_prefix        = "405"               # 4051-4059
-controlplane_node_name          = "talos"
+controlplane_node_name          = "proxmox"
 controlplane_num                = 1
 
 controlplane_hostname_prefix    = "k8s-cp"
@@ -37,7 +37,7 @@ controlplane_tags               = [
 
 # Worker Nodes ##################
 workernode_vmid_prefix          = "406"               # 4061-4069
-workernode_node_name            = "talos"
+workernode_node_name            = "proxmox"
 workernode_num                  = 1
 
 workernode_hostname_prefix      = "k8s-node"
