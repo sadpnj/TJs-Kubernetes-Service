@@ -180,7 +180,7 @@ variable "workernode_memory" {
 }
 variable "workernode_datastore" {
   type        = string
-  default     = "FlashPool"
+  default     = "local-lvm"
   description = "Datastore used for the workernode virtual machines"
 }
 variable "workernode_disk_size" {
