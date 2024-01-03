@@ -43,6 +43,17 @@ resource "proxmox_virtual_environment_vm" "workernode" {
     type = "l26"
   }
 
+  initialization {
+    dns {
+      servers = ["1.1.1.1", "8.8.8.8"]
+    }
+    ip_config {
+      ipv4 {
+        address = "${var.workernode_ip_prefix}${count.index + 1}/${var.cluster_cidr}"
+        gateway = var.cluster_gateway
+      }
+    }
+  }
   # Remove the node from Kubernetes on destroy
   provisioner "local-exec" {
     when    = destroy

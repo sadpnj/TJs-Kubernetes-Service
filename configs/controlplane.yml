@@ -9,6 +9,6 @@ machine:
   network:
     interfaces:
       - interface: "eth0"
-        dhcp: true
+        dhcp: false
         vip:
           ip: "${talos_virtual_ip}"

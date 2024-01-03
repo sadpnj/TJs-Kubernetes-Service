@@ -43,6 +43,18 @@ resource "proxmox_virtual_environment_vm" "controlplane" {
     type = "l26"
   }
 
+  initialization {
+    dns {
+      servers = ["1.1.1.1", "8.8.8.8"]
+    }
+    ip_config {
+      ipv4 {
+        address = "${var.controlplane_ip_prefix}${count.index + 1}/${var.cluster_cidr}"
+        gateway = var.cluster_gateway
+      }
+    }  
+  }
+
   # Remove the node from Kubernetes on destroy
   provisioner "local-exec" {
     when    = destroy

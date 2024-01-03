@@ -16,6 +16,16 @@ variable "proxmox_resource_pool" {
   description = "Resource Pool to create on Proxmox for the cluster"
 }
 
+variable "cluster_gateway" {
+  type        = string
+  description = "gateway for private proxmox network"
+  default = "10.10.10.1"
+}
+
+variable "cluster_cidr" {
+  type        = string
+  default = "24"
+}
 
 # Talos Image
 variable "talos_image_datastore" {
