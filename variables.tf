@@ -115,7 +115,7 @@ variable "controlplane_memory" {
 }
 variable "controlplane_datastore" {
   type        = string
-  default     = "FlashPool"
+  default     = "local"
   description = "Datastore used for the controlplane virtual machines"
 }
 variable "controlplane_disk_size" {
