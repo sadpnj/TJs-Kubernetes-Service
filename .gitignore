@@ -1,5 +1,7 @@
 manifests/core/cilium/charts
 manifests/core/kubelet-csr-approver/charts
+manifests/core/metrics-server/charts
+manifests/argo/argo-cd/charts
 # Terraform
 .terraform*
 *.tfstate*
