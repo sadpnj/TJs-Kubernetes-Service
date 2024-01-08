@@ -1,0 +1,12 @@
+resources:
+  - resources/ciliumLoadBalancerIpPool.yml
+  - resources/ciliumL2AnnouncementPolicy.yml
+
+helmCharts:
+  - name: cilium
+    repo: https://helm.cilium.io/
+    version: 1.15.0-rc.0 # https://artifacthub.io/packages/helm/cilium/cilium
+    releaseName: cilium
+    namespace: kube-system
+    valuesFile: values.yml
+    includeCRDs: true

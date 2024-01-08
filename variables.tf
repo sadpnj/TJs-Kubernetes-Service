@@ -22,9 +22,20 @@ variable "cluster_gateway" {
   default = "10.10.10.1"
 }
 
+variable "gateway" {
+  type        = string
+  description = "gateway for private LAN"
+  default = "192.168.1.1"
+}
+
 variable "cluster_cidr" {
   type        = string
   default = "24"
+}
+
+variable "node_name" {
+  type        = string
+  default = "proxmox"
 }
 
 # Talos Image
@@ -214,4 +225,16 @@ variable "workernode_vlan_id" {
   type        = number
   default     = null
   description = "VLAN ID used for the workernode nodes"
+}
+
+variable "caddy_ip_lan" {
+  type        = string
+  description = "ip for private LAN"
+  default = "192.168.1.11/24"
+}
+
+variable "caddy_ip_internal" {
+  type        = string
+  description = "ip for internal proxmox network"
+  default = "10.10.10.5/24"
 }

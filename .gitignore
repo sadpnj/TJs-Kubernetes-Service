@@ -1,3 +1,5 @@
+manifests/core/cilium/charts
+manifests/core/kubelet-csr-approver/charts
 # Terraform
 .terraform*
 *.tfstate*
