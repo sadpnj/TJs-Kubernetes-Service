@@ -1,0 +1,52 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: argo
+  namespace: argo-system
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  orphanedResources:
+    warn: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: argo
+  namespace: argo-system
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/sadpnj/homelab
+        revision: main
+        directories:
+          - path: "manifests/argo/*"
+  syncPolicy:
+    preserveResourcesOnDeletion: false
+  template:
+    metadata:
+      name: "{{ path.basenameNormalized }}"
+      labels:
+        app-group: argo
+    spec:
+      project: argo
+      source:
+        repoURL: https://github.com/sadpnj/homelab
+        targetRevision: main
+        path: "{{ path }}"
+      destination:
+        server: https://kubernetes.default.svc
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
