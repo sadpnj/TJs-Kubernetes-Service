@@ -39,7 +39,7 @@ controlplane_tags               = [
 # Worker Nodes ##################
 workernode_vmid_prefix          = "406"               # 4061-4069
 workernode_node_name            = "proxmox"
-workernode_num                  = 1
+workernode_num                  = 3
 
 workernode_hostname_prefix      = "k8s-node"
 workernode_ip_prefix            = "10.10.10.6"      # 62-69
