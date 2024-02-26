@@ -2,6 +2,7 @@ manifests/core/cilium/charts
 manifests/core/kubelet-csr-approver/charts
 manifests/core/metrics-server/charts
 manifests/argo/argo-cd/charts
+manifests/storage/proxmox-csi-plugin/charts
 .conf
 # Terraform
 .terraform*

@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: homepage
+spec:
+  selector:
+    matchLabels:
+      app: homepage
+  template:
+    metadata:
+      labels:
+        app: homepage
+    spec:
+      initContainers:
+        - name: seed-volumes
+          image: busybox
+          command: ["/tmp/seed-volumes.sh"]
+          volumeMounts:
+            - name: homepage-data
+              mountPath: /app/config
+            - name: homepage-icons
+              mountPath: /app/public/icons
+            - name: homepage-images
+              mountPath: /app/public/images
+            - name: homepage-settings
+              mountPath: /config
+            - name: homepage-seed-script
+              mountPath: /tmp
+      containers:
+        - name: homepage
+          image: ghcr.io/gethomepage/homepage
+          envFrom:
+            - configMapRef:
+                name: homepage-env-vars
+          ports:
+            - name: "http"
+              containerPort: 3000
+              protocol: TCP
+          volumeMounts:
+            - name: homepage-data
+              mountPath: /app/config
+            - name: homepage-icons
+              mountPath: /app/public/icons
+            - name: homepage-images
+              mountPath: /app/public/images
+      serviceAccountName: homepage
+      volumes:
+        - name: homepage-data
+          persistentVolumeClaim:
+            claimName: homepage-data
+        - name: homepage-icons
+          persistentVolumeClaim:
+            claimName: homepage-icons
+        - name: homepage-images
+          persistentVolumeClaim:
+            claimName: homepage-images
+        - name: homepage-settings
+          configMap:
+            name: homepage-settings
+        - name: homepage-seed-script
+          configMap:
+            name: homepage-seed-script
+            defaultMode: 0700

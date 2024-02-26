@@ -1,0 +1,14 @@
+# https://gethomepage.dev/latest/configs/settings
+
+title: homelab
+startUrl: https://home.mezmer.ch
+
+
+background: /images/background.jpg
+cardBlur: xl
+favicon: /images/favicon.png
+color: stone
+
+
+headerStyle: boxed
+hideVersion: true

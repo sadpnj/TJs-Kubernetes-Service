@@ -1,0 +1,15 @@
+namespace: nextcloud
+
+resources:
+  - resources/namespace.yml
+  - resources/persistentVolume.yml
+  - resources/persistentVolumeClaim.yml
+  - resources/service.yml
+
+helmCharts:
+  - name: nextcloud
+    repo: https://nextcloud.github.io/helm/
+    releaseName: nextcloud
+    namespace: nextcloud
+    valuesFile: values.yml
+    includeCRDs: true

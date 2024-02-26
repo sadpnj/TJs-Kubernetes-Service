@@ -1,0 +1,29 @@
+# https://gethomepage.dev/latest/configs/services/
+
+- Kubernetes:
+  - Argo CD:
+      description: argo.home.mezmer.ch
+      href: https://argo.home.mezmer.ch/
+      icon: https://miro.medium.com/v2/resize:fit:1400/1*An25ihShzJkhL3jAwUaWfg.png
+      siteMonitor: https://argo.home.mezmer.ch
+      namespace: argo-system
+      app: argocd-server
+  - Hubble UI:
+      description: hubble.home.mezmer.ch
+      href: https://hubble.home.mezmer.ch/
+      icon: https://avatars.githubusercontent.com/u/21054566?s=280&v=4
+      siteMonitor: https://hubble.home.mezmer.ch/
+      namespace: kube-system
+      app: hubble-ui
+
+
+- Media:
+  - Nextcloud:
+      description: cloud.home.mezmer.ch
+      href: https://cloud.home.mezmer.ch/
+      icon: nextcloud.png
+      siteMonitor: https://cloud.home.mezmer.ch
+      namespace: nextcloud
+      app: nextcloud
+
+

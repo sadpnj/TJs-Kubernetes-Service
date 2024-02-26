@@ -1,0 +1,30 @@
+namespace: homepage-system
+
+resources:
+  - resources/namespace.yml
+  - resources/serviceAccount.yml
+  - resources/clusterRole.yml
+  - resources/clusterRoleBinding.yml
+  - resources/persistentVolume.yml
+  - resources/persistentVolumeClaim.yml
+  - resources/service.yml
+  - resources/statefulset.yml
+
+images:
+  - name: ghcr.io/gethomepage/homepage
+    newTag: v0.8.8 # https://github.com/gethomepage/homepage/pkgs/container/homepage
+
+configMapGenerator:
+  - name: homepage-env-vars
+    literals:
+      - PUID="65534"
+      - PGID="65534"
+  - name: homepage-settings
+    files:
+      - files/configs/kubernetes.yaml
+      - files/configs/services.yaml
+      - files/configs/settings.yaml
+      - files/configs/widgets.yaml
+  - name: homepage-seed-script
+    files:
+      - files/scripts/seed-volumes.sh

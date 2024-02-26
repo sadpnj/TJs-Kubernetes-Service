@@ -1,0 +1,12 @@
+createNamespace: true
+
+storageClass:
+  - name: data
+    storage: data
+    fstype: xfs
+    reclaimPolicy: Retain
+    cache: "writethrough"
+    ssd: true
+    mountOptions:
+      - noatime
+

@@ -1,0 +1,101 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: homepage-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  csi:
+    driver: csi.proxmox.sinextra.dev
+    fsType: xfs
+    volumeAttributes:
+      cache: writethrough
+      ssd: "true"
+      storage: data
+      storage.kubernetes.io/csiProvisionerIdentity: 1697594800660-2288-csi.proxmox.sinextra.dev
+    volumeHandle: homelab/proxmox/data/vm-9999-Homepage-Data
+  mountOptions:
+    - noatime
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.kubernetes.io/region
+          operator: In
+          values:
+            - homelab
+        - key: topology.kubernetes.io/zone
+          operator: In
+          values:
+            - proxmox
+  storageClassName: data
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: homepage-icons
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  csi:
+    driver: csi.proxmox.sinextra.dev
+    fsType: xfs
+    volumeAttributes:
+      cache: writethrough
+      ssd: "true"
+      storage: data
+      storage.kubernetes.io/csiProvisionerIdentity: 1697594800660-2288-csi.proxmox.sinextra.dev
+    volumeHandle: homelab/proxmox/data/vm-9999-Homepage-Icons
+  mountOptions:
+    - noatime
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.kubernetes.io/region
+          operator: In
+          values:
+            - homelab
+        - key: topology.kubernetes.io/zone
+          operator: In
+          values:
+            - proxmox
+  storageClassName: data
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: homepage-images
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  csi:
+    driver: csi.proxmox.sinextra.dev
+    fsType: xfs
+    volumeAttributes:
+      cache: writethrough
+      ssd: "true"
+      storage: data
+      storage.kubernetes.io/csiProvisionerIdentity: 1697594800660-2288-csi.proxmox.sinextra.dev
+    volumeHandle: homelab/proxmox/data/vm-9999-Homepage-Images
+  mountOptions:
+    - noatime
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.kubernetes.io/region
+          operator: In
+          values:
+            - homelab
+        - key: topology.kubernetes.io/zone
+          operator: In
+          values:
+            - proxmox
+  storageClassName: data
