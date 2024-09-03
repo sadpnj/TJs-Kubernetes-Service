@@ -7,6 +7,19 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 2Ti
+      storage: 1.5Ti
   storageClassName: data
   volumeName: nextcloud-data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nextcloud-db
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+  storageClassName: data
+  volumeName: nextcloud-db

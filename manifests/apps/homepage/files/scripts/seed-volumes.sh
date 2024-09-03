@@ -25,8 +25,7 @@ seed_icons(){
   timestamp "Icons"
 
   mkdir -p /app/public/icons
-  wget -O /app/public/icons/supermicro-ipmi.png https://raw.githubusercontent.com/$REPO/$BRANCH/misc/homepage/files/icons/supermicro-ipmi.png
-  wget -O /app/public/icons/kiali.png https://raw.githubusercontent.com/$REPO/$BRANCH/misc/homepage/files/icons/kiali.png
+  wget -O /app/public/icons/nextcloud.png https://github.com/sadpnj/homelab/blob/main/manifests/apps/homepage/files/icons/nextcloud.png?raw=true
 }
 
 seed_images(){

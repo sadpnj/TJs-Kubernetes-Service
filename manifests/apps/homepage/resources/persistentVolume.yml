@@ -15,7 +15,7 @@ spec:
       ssd: "true"
       storage: data
       storage.kubernetes.io/csiProvisionerIdentity: 1697594800660-2288-csi.proxmox.sinextra.dev
-    volumeHandle: homelab/proxmox/data/vm-9999-Homepage-Data
+    volumeHandle: homelab/proxmox/data/vm-4061-disk-0
   mountOptions:
     - noatime
   nodeAffinity:
@@ -49,7 +49,7 @@ spec:
       ssd: "true"
       storage: data
       storage.kubernetes.io/csiProvisionerIdentity: 1697594800660-2288-csi.proxmox.sinextra.dev
-    volumeHandle: homelab/proxmox/data/vm-9999-Homepage-Icons
+    volumeHandle: homelab/proxmox/data/vm-4061-disk-1
   mountOptions:
     - noatime
   nodeAffinity:
@@ -83,7 +83,7 @@ spec:
       ssd: "true"
       storage: data
       storage.kubernetes.io/csiProvisionerIdentity: 1697594800660-2288-csi.proxmox.sinextra.dev
-    volumeHandle: homelab/proxmox/data/vm-9999-Homepage-Images
+    volumeHandle: homelab/proxmox/data/vm-4061-disk-2
   mountOptions:
     - noatime
   nodeAffinity:
