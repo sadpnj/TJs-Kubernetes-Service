@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sonarr-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  csi:
+    driver: csi.proxmox.sinextra.dev
+    fsType: xfs
+    volumeAttributes:
+      cache: writethrough
+      ssd: "true"
+      storage: data
+      storage.kubernetes.io/csiProvisionerIdentity: 1697594800660-2288-csi.proxmox.sinextra.dev
+    volumeHandle: homelab/proxmox/local-lvm/vm-4063-disk-3
+  mountOptions:
+    - noatime
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.kubernetes.io/region
+          operator: In
+          values:
+            - homelab
+        - key: topology.kubernetes.io/zone
+          operator: In
+          values:
+            - proxmox
+  storageClassName: data
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sonarr-downloads
+spec:
+  capacity:
+    storage: 1Ti
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /mnt/storage/downloads/unsorted
+    server: 10.10.10.6
+  storageClassName: nfs-client
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sonarr-tv
+spec:
+  capacity:
+    storage: 2Ti
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /mnt/storage/media/shows
+    server: 10.10.10.6
+  storageClassName: nfs-client

@@ -1,0 +1,6 @@
+nfs:
+  server: 10.10.10.6
+  path: /mnt/storage
+
+storageClass:
+  defaultClass: true

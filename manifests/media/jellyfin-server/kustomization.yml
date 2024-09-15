@@ -1,0 +1,20 @@
+namespace: jellyfin-server-system
+
+resources:
+  - resources/namespace.yml
+  - resources/persistentVolume.yml
+  - resources/persistentVolumeClaim.yml
+
+commonLabels:
+  app.kubernetes.io/name: jellyfin-server
+
+helmCharts:
+  - includeCRDs: true
+    name: jellyfin
+    namespace: jellyfin-server-system
+    releaseName: jellyfin
+    repo: https://jellyfin.github.io/jellyfin-helm/
+    valuesFile: values.yml
+    version: 1.2.0
+
+

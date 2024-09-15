@@ -1,0 +1,22 @@
+namespace: sonarr-system
+
+resources:
+  - resources/namespace.yml
+  - resources/persistentVolume.yml
+  - resources/persistentVolumeClaim.yml
+  - resources/service.yml
+  - resources/statefulset.yml
+
+commonLabels:
+  app.kubernetes.io/name: sonarr
+
+images:
+  - name: linuxserver/sonarr
+    newTag: 4.0.9 # https://hub.docker.com/r/linuxserver/sonarr/tags
+
+configMapGenerator:
+  - name: sonarr-env-vars
+    literals:
+      - TZ="Europe/Paris"
+      - PUID="65534"
+      - PGID="65534"

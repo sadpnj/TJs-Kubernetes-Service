@@ -1,0 +1,22 @@
+
+extraEnv:
+  TZ: "Europe/Paris"
+
+persistence:
+  config:
+    enabled: true 
+    storageClass: data
+    existingClaim: jellyfin-data
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  media:
+    enabled: true
+    storageClass: nfs-client
+    existingClaim: jellyfin-media
+    accessMode: ReadWriteMany
+    size: 4Ti
+
+service:
+  annotations:
+    io.cilium/lb-ipam-ips: 10.10.10.104
+  type: LoadBalancer

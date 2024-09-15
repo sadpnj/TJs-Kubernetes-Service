@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: rutorrent-fileserver
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 2Ti
+  nfs:
+    server: 10.10.10.6
+    path: /mnt/storage
+  storageClassName: nfs-client
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: rutorrent-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  csi:
+    driver: csi.proxmox.sinextra.dev
+    fsType: xfs
+    volumeAttributes:
+      cache: writethrough
+      ssd: "true"
+      storage: data 
+      storage.kubernetes.io/csiProvisionerIdentity: 111682607985217-8081-csi.proxmox.sinextra.dev
+    volumeHandle: homelab/proxmox/local-lvm/vm-4063-disk-1
+  mountOptions:
+    - noatime
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.kubernetes.io/region
+          operator: In
+          values:
+            - homelab
+        - key: topology.kubernetes.io/zone
+          operator: In
+          values:
+            - proxmox
+  storageClassName: data

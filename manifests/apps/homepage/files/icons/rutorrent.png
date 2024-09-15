@@ -1,0 +1,14 @@
+--2024-09-08 11:59:22--  https://gitlab.com/uploads/-/system/project/avatar/52938277/rutorrent.pnghttps://upload.wikimedia.org/wikipedia/commons/8/8e/Plex_favicon.png
+Resolving gitlab.com (gitlab.com)... 2606:4700:90:0:f22e:fbec:5bed:a9b9, 172.65.251.78
+Connecting to gitlab.com (gitlab.com)|2606:4700:90:0:f22e:fbec:5bed:a9b9|:443... connected.
+HTTP request sent, awaiting response... 308 Permanent Redirect
+Location: https://gitlab.com/uploads/-/system/project/avatar/52938277/rutorrent.pnghttps:/upload.wikimedia.org/wikipedia/commons/8/8e/Plex_favicon.png [following]
+--2024-09-08 11:59:22--  https://gitlab.com/uploads/-/system/project/avatar/52938277/rutorrent.pnghttps:/upload.wikimedia.org/wikipedia/commons/8/8e/Plex_favicon.png
+Reusing existing connection to [gitlab.com]:443.
+HTTP request sent, awaiting response... 302 Found
+Location: https://gitlab.com/users/sign_in [following]
+--2024-09-08 11:59:22--  https://gitlab.com/users/sign_in
+Reusing existing connection to [gitlab.com]:443.
+HTTP request sent, awaiting response... 403 Forbidden
+2024-09-08 11:59:22 ERROR 403: Forbidden.
+

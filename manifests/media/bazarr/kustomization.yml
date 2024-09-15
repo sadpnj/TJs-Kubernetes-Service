@@ -1,0 +1,22 @@
+namespace: bazarr-system
+
+resources:
+  - resources/namespace.yml
+  - resources/persistentVolume.yml
+  - resources/persistentVolumeClaim.yml
+  - resources/service.yml
+  - resources/statefulset.yml
+
+commonLabels:
+  app.kubernetes.io/name: bazarr
+
+images:
+  - name: linuxserver/bazarr
+    newTag: latest # https://hub.docker.com/r/linuxserver/bazarr/tags
+
+configMapGenerator:
+  - name: bazarr-env-vars
+    literals:
+      - TZ="Europe/Paris"
+      - PUID="65534"
+      - PGID="65534"

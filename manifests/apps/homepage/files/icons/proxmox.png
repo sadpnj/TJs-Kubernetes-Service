@@ -1,0 +1,11 @@
+--2024-09-09 20:09:12--  https://i0.wp.com/christophe.cucciardi.fr/wp-content/uploads/2023/08/proxmox_logo.png?ssl=1
+Resolving i0.wp.com (i0.wp.com)... 192.0.77.2
+Connecting to i0.wp.com (i0.wp.com)|192.0.77.2|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 17634 (17K) [image/png]
+Saving to: ‘proxmox_logo.png?ssl=1’
+
+     0K .......... .......                                    100% 18.3M=0.001s
+
+2024-09-09 20:09:13 (18.3 MB/s) - ‘proxmox_logo.png?ssl=1’ saved [17634/17634]
+

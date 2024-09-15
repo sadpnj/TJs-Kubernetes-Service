@@ -1,0 +1,12 @@
+apiVersion: v2
+appVersion: 10.9.11
+description: Jellyfin Media Server
+home: https://jellyfin.org/
+icon: https://jellyfin.org/images/logo.svg
+keywords:
+- jellyfin
+- media
+- self-hosted
+name: jellyfin
+type: application
+version: 1.2.0

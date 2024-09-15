@@ -59,6 +59,18 @@ resource "proxmox_virtual_environment_vm" "workernode" {
     when    = destroy
     command = "./bin/manage_nodes remove ${self.name}"
   }
+  lifecycle {
+    ignore_changes = [
+      "disk",
+    ]
+  }
+}
+
+resource "proxmox_virtual_environment_download_file" "latest_ubuntu_22_jammy_lxc_img" {
+  datastore_id = "local"
+  content_type = "vztmpl"
+  node_name = "proxmox"
+  url =  "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.tar.gz"  
 }
 
 data "talos_machine_configuration" "workernode" {

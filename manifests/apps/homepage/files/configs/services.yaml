@@ -5,25 +5,81 @@
       description: argo.home.mezmer.ch
       href: https://argo.home.mezmer.ch/
       icon: https://miro.medium.com/v2/resize:fit:1400/1*An25ihShzJkhL3jAwUaWfg.png
-      siteMonitor: https://argo.home.mezmer.ch
+      siteMonitor: https://10.10.10.102 
       namespace: argo-system
       app: argocd-server
   - Hubble UI:
       description: hubble.home.mezmer.ch
       href: https://hubble.home.mezmer.ch/
       icon: https://avatars.githubusercontent.com/u/21054566?s=280&v=4
-      siteMonitor: https://hubble.home.mezmer.ch/
+      siteMonitor: http://10.10.10.101 
       namespace: kube-system
       app: hubble-ui
 
 
 - Media:
-  - Nextcloud:
-      description: cloud.home.mezmer.ch
-      href: https://cloud.home.mezmer.ch/
-      icon: nextcloud.png
-      siteMonitor: https://cloud.home.mezmer.ch
-      namespace: nextcloud
-      app: nextcloud
+  - Jellyfin:
+      description: jellyfin.home.mezmer.ch
+      href: https://jellyfin.home.mezmer.ch/
+      icon: jellyfin.png
+      siteMonitor: http://10.10.10.104:8096
+      namespace: jellyfin-server-system
+      app: jellyfin-serve-serverr
+  - Rutorrent:
+      description: rutorrent.home.mezmer.ch
+      href: https://rutorrent.home.mezmer.ch/
+      icon: rutorrent.png
+      siteMonitor: http://10.10.10.105
+      namespace: rutorrent-system
+      app: rutorrent
+  - Radarr:
+      description: radarr.home.mezmer.ch
+      href: https://radarr.home.mezmer.ch/
+      icon: radarr.png
+      siteMonitor: http://10.10.10.106
+      namespace: radarr-system
+      app: radarr
+  - Sonarr:
+      description: sonarr.home.mezmer.ch
+      href: https://sonarr.home.mezmer.ch/
+      icon: sonarr.png
+      siteMonitor: http://10.10.10.107
+      namespace: sonarr-system
+      app: sonarr
+  - bazarr:
+      description: bazarr.home.mezmer.ch
+      href: https://bazarr.home.mezmer.ch/
+      icon: bazarr.png
+      siteMonitor: http://10.10.10.108
+      namespace: bazarr-system
+      app: bazarr
+  - prowlarr:
+      description: prowlarr.home.mezmer.ch
+      href: https://prowlarr.home.mezmer.ch/
+      icon: prowlarr.png
+      siteMonitor: http://10.10.10.109
+      namespace: prowlarr-system
+      app: prowlarr
 
 
+
+
+- Admin:
+  - CoreDns:
+      description: 192.168.1.12
+      icon: coredns.png
+  - Caddy:
+      description: 192.168.1.11
+      icon: caddy.png
+  - Adguard:
+      description: ag.home.mezmer.ch
+      href: http://ag.home.mezmer.ch
+      icon: adguard.png
+  - Proxmox:
+      description: pve.home.mezmer.ch
+      href: https://pve.home.mezmer.ch:8006
+      icon: proxmox.png
+  - DefGuard:
+      description: defguard.home.mezmer.ch
+      href: https://defguard.home.mezmer.ch
+      

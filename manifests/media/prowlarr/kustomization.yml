@@ -1,0 +1,22 @@
+namespace: prowlarr-system
+
+resources:
+  - resources/namespace.yml
+  - resources/persistentVolume.yml
+  - resources/persistentVolumeClaim.yml
+  - resources/service.yml
+  - resources/statefulset.yml
+
+commonLabels:
+  app.kubernetes.io/name: prowlarr
+
+images:
+  - name: linuxserver/prowlarr
+    newTag: 1.23.1 # https://hub.docker.com/r/linuxserver/prowlarr/tags
+
+configMapGenerator:
+  - name: prowlarr-env-vars
+    literals:
+      - TZ="Europe/Paris"
+      - PUID="65534"
+      - PGID="65534"

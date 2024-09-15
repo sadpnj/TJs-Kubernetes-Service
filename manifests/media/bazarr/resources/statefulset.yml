@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: bazarr
+spec:
+  selector:
+    matchLabels:
+      app: bazarr
+  template:
+    metadata:
+      labels:
+        app: bazarr
+    spec:
+      containers:
+        - name: bazarr
+          image: linuxserver/bazarr
+          envFrom:
+            - configMapRef:
+                name: bazarr-env-vars
+          ports:
+            - name: "http"
+              containerPort: 8989
+              protocol: TCP
+          volumeMounts:
+            - name: bazarr-data
+              mountPath: /config
+            - name: bazarr-downloads
+              mountPath: /data/downloads
+            - name: bazarr-subs
+              mountPath: /data/subs
+      volumes:
+        - name: bazarr-data
+          persistentVolumeClaim:
+            claimName: bazarr-data
+        - name: bazarr-downloads
+          persistentVolumeClaim:
+            claimName: bazarr-downloads
+        - name: bazarr-subs
+          persistentVolumeClaim:
+            claimName: bazarr-subs

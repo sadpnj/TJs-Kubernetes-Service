@@ -14,7 +14,6 @@ seed_configs(){
   timestamp "Configs"
 
   mkdir -p /app/config/
-  cp --verbose /config/bookmarks.yaml /app/config/bookmarks.yaml
   cp --verbose /config/kubernetes.yaml /app/config/kubernetes.yaml
   cp --verbose /config/services.yaml /app/config/services.yaml
   cp --verbose /config/settings.yaml /app/config/settings.yaml
@@ -23,9 +22,12 @@ seed_configs(){
 
 seed_icons(){
   timestamp "Icons"
-
+  apps="plex sonarr radarr rutorrent"
   mkdir -p /app/public/icons
-  wget -O /app/public/icons/nextcloud.png https://github.com/sadpnj/homelab/blob/main/manifests/apps/homepage/files/icons/nextcloud.png?raw=true
+  for app in $apps
+  do
+    wget -O /app/public/icons/$app.png https://github.com/sadpnj/homelab/blob/main/manifests/apps/homepage/files/icons/$app.png?raw=true
+  done
 }
 
 seed_images(){

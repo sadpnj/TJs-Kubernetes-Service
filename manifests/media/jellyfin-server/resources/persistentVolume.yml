@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jellyfin-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  csi:
+    driver: csi.proxmox.sinextra.dev
+    fsType: xfs
+    volumeAttributes:
+      cache: writethrough
+      ssd: "true"
+      storage: data
+      storage.kubernetes.io/csiProvisionerIdentity: 697594800660-2288-csi.proxmox.sinextra.dev
+    volumeHandle: homelab/proxmox/local-lvm/vm-4063-disk-2 
+  mountOptions:
+    - noatime
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.kubernetes.io/region
+          operator: In
+          values:
+            - homelab 
+        - key: topology.kubernetes.io/zone
+          operator: In
+          values:
+            - proxmox
+  storageClassName: data
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jellyfin-media
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 4Ti
+  nfs:
+    server: 10.10.10.6
+    path: /mnt/storage/media
+  storageClassName: nfs-client

@@ -17,14 +17,14 @@ kubernetes_cluster_name         = "talos"
 # Controlplanes #################
 controlplane_vmid_prefix        = "405"               # 4051-4059
 controlplane_node_name          = "proxmox"
-controlplane_num                = 1
+controlplane_num                = 2
 
 controlplane_hostname_prefix    = "k8s-cp"
 controlplane_ip_prefix          = "10.10.10.5"      # 51-59
 controlplane_mac_address_prefix = "00:00:00:00:00:5"  # 00:51 - 00:59
 
 controlplane_cpu_cores          = "2"
-controlplane_memory             = "2048"
+controlplane_memory             = "4096"
 controlplane_disk_size          = "10"
 
 controlplane_network_device = "vmbr1"
@@ -39,14 +39,14 @@ controlplane_tags               = [
 # Worker Nodes ##################
 workernode_vmid_prefix          = "406"               # 4061-4069
 workernode_node_name            = "proxmox"
-workernode_num                  = 3
+workernode_num                  = 6
 
 workernode_hostname_prefix      = "k8s-node"
 workernode_ip_prefix            = "10.10.10.6"      # 62-69
 workernode_mac_address_prefix   = "00:00:00:00:00:6"  # 00:61 - 00:69
 
 workernode_cpu_cores            = "2"
-workernode_memory               = "2048"
+workernode_memory               = "4096"
 workernode_disk_size            = "10"
 
 workernode_network_device = "vmbr1"
